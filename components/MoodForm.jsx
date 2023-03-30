@@ -21,7 +21,7 @@ const MoodForm = ({mood,moods,date,setEditing,setMoods}) => {
     <form onSubmit={handleSubmit}>
         <div>
           <h2 className="font-bold">Date</h2>
-          <div>{date.toString()}</div>
+          <div>{mood.date.toString()}</div>
         </div>
         <div className="flex flex-col">
           <label htmlFor="feeling" className="font-bold">Feeling</label>

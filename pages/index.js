@@ -43,14 +43,18 @@ export default function Home({ target, moods: moodz, first }) {
         <div className="text-center font-bold text-xl mt-4 underline underline-offset-4 decoration-[3px] text-teal-800">
           {session.user.name}
         </div>
+        <div className="flex flex-col gap-2 mt-5 justify-center items-center text-xs">
+          <button
+            onClick={() => signOut({ callbackUrl: "/signin" })}
+            className="rounded px-2 py-1 bg-rose-700 hover:bg-rose-900 text-white max-w-fit"
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
       <div className="grow-[2] mt-10">
-        <button onClick={() => signIn()}>Sign In</button>
-        <button onClick={() => signOut({ callbackUrl: "/signin" })}>
-          Sign Out
-        </button>
-        <h1 className="text-2xl font-bold">Mood</h1>
-        <div className="grid grid-rows-7 grid-flow-col gap-[2.5px] overflow-x-auto p-1 max-w-fit">
+        <h1 className="text-2xl font-bold mb-2">Mood</h1>
+        <div className="grid grid-rows-7 grid-flow-col gap-[2.5px] overflow-x-auto max-w-fit pr-[100px] pb-[20px]">
           {moods.map((mood, i) => (
             <div className="relative group flex" key={i}>
               <button
@@ -96,7 +100,7 @@ export default function Home({ target, moods: moodz, first }) {
             <>
               <div>
                 <h2 className="font-bold">Date</h2>
-                <div>{mood?.date}</div>
+                <div>{mood?.date?.slice(0, 10)}</div>
               </div>
               <div>
                 <h2 className="font-bold">Feeling</h2>
